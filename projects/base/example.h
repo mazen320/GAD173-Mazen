@@ -18,17 +18,24 @@ public:
 
 	sf::Texture *tileTexture;
 	sf::Texture *tileTexture2;
+	sf::Texture* tileTexture3;
+
 	sf::Texture* removeTexture;
 
-	sf::Sprite tiles[20];
+	sf::Sprite tiles[72];
 
 	int selectedTile = 0;
 
-	int map[20] = {
-		0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0,
-		0, 0, 0, 0, 0
+	int map[72] = 
+	{
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3
 	};
 
 	Grid grid;

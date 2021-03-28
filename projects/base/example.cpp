@@ -24,17 +24,21 @@ bool Example::start()
 
 	tileTexture = kage::TextureManager::getTexture("data/grass2.jpg");
 	tileTexture2 = kage::TextureManager::getTexture("data/grass1.jpg");
+	tileTexture3 = kage::TextureManager::getTexture("data/test.jpg");
+
+
 	removeTexture = kage::TextureManager::getTexture("data/delete.png");
 
 
-	for (size_t y = 0; y < 4; y++)
+	for (size_t y = 0; y < 8; y++)
 	{
-		for (size_t x = 0; x < 5; x++)
+		for (size_t x = 0; x < 9; x++)
 		{
 			int i = x + y * 5;
 
 			if (map[i] == 0)
 			{
+				tiles[i].setTexture(*removeTexture);
 			}
 			if (map[i] == 1)
 			{
@@ -42,9 +46,12 @@ bool Example::start()
 			}
 			if (map[i] == 2)
 			{
-				tiles[i].setTexture(*tileTexture);
+				tiles[i].setTexture(*tileTexture2);
 			}
-
+			if (map[i] == 3)
+			{
+				tiles[i].setTexture(*tileTexture3);
+			}
 			tiles[i].setPosition(sf::Vector2f(GRID_OFFSET_X + x * CELL_SIZE,
 											  GRID_OFFSET_Y + y * CELL_SIZE));
 		}
@@ -77,6 +84,10 @@ void Example::update(float deltaT)
 	{
 		selectedTile = 2;
 	}
+	if (ImGui::ImageButton(*tileTexture3, sf::Vector2f(20, 20)))
+	{
+		selectedTile = 3;
+	}
 
 	ImGui::End();
 
@@ -84,8 +95,8 @@ void Example::update(float deltaT)
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(m_window);
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) &&
-		mousePosition.x >= 0 && mousePosition.x <= 280 &&
-		mousePosition.y >= 0 && mousePosition.y <= 224)
+		mousePosition.x >= 0 && mousePosition.x <= 500 &&
+		mousePosition.y >= 0 && mousePosition.y <= 5000)
 	{
 		int mouseonCellX = mousePosition.x / CELL_SIZE;
 		int mouseonCellY = mousePosition.y / CELL_SIZE;
@@ -113,6 +124,11 @@ void Example::update(float deltaT)
 			tiles[i].setTexture(*tileTexture2);
 			map[i] = 1;
 		}
+		if (selectedTile == 3)
+		{
+			tiles[i].setTexture(*tileTexture3);
+			map[i] = 1;
+		}
 	}
 }
 
@@ -120,7 +136,7 @@ void Example::render()
 {
 	m_window.draw(*m_backgroundSprite);
 
-	for (size_t i = 0; i < 20; i++)
+	for (size_t i = 0; i < 72; i++)
 		m_window.draw(tiles[i]);
 
 	grid.Draw(m_window);
