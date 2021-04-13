@@ -22,12 +22,14 @@ public:
 
 	sf::Texture* removeTexture;
 
-	sf::Sprite tiles[72];
+	sf::Sprite tiles[90];
 
 	int selectedTile = 0;
 
-	int map[72] = 
+	int map[90] = 
 	{
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
+		1, 2, 3, 1, 2, 3, 1, 2, 3,
 		1, 2, 3, 1, 2, 3, 1, 2, 3,
 		1, 2, 3, 1, 2, 3, 1, 2, 3,
 		1, 2, 3, 1, 2, 3, 1, 2, 3,

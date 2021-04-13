@@ -30,11 +30,11 @@ bool Example::start()
 	removeTexture = kage::TextureManager::getTexture("data/delete.png");
 
 
-	for (size_t y = 0; y < 8; y++)
+	for (size_t y = 0; y < 10; y++)
 	{
 		for (size_t x = 0; x < 9; x++)
 		{
-			int i = x + y * 5;
+			int i = x + y * 9;
 
 			if (map[i] == 0)
 			{
@@ -95,15 +95,15 @@ void Example::update(float deltaT)
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(m_window);
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) &&
-		mousePosition.x >= 0 && mousePosition.x <= 500 &&
-		mousePosition.y >= 0 && mousePosition.y <= 5000)
+		mousePosition.x >= 0 && mousePosition.x <= 504 &&
+		mousePosition.y >= 0 && mousePosition.y <= 5600)
 	{
 		int mouseonCellX = mousePosition.x / CELL_SIZE;
 		int mouseonCellY = mousePosition.y / CELL_SIZE;
 
-		int i = mouseonCellX + mouseonCellY * 5;
+		int i = mouseonCellX + mouseonCellY * 9;
 
-		std::cout << i << std::endl; 
+		//std::cout << i << std::endl; 
 
 		std::cout << mousePosition.x << " " << mousePosition.y
 			<< mouseonCellX << " " << mouseonCellY << std::endl;
@@ -132,11 +132,12 @@ void Example::update(float deltaT)
 	}
 }
 
+
 void Example::render()
 {
 	m_window.draw(*m_backgroundSprite);
 
-	for (size_t i = 0; i < 72; i++)
+	for (size_t i = 0; i < 90; i++)
 		m_window.draw(tiles[i]);
 
 	grid.Draw(m_window);
