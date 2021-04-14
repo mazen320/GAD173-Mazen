@@ -3,7 +3,6 @@
 #include "Map.h"
 #include <iostream>
 
-
 Map::Map()
 {
 }
@@ -60,39 +59,30 @@ void Map::mapLoad()
 
 void Map::guiLoad(sf::RenderWindow& window)
 {
-
-	ImGui::Begin("Kage2D");
-
-	if (ImGui::Button("Exit"))
-	{
-		m_running = false;
-	}
-
 	if (ImGui::Button("Remove Object"))
 	{
 		selectedTile = 0;
 	}
 
-	if (ImGui::ImageButton(*tileTexture, sf::Vector2f(20, 20)))
+	if (ImGui::ImageButton(*tileTexture, sf::Vector2f(30, 30)))
 	{
 		selectedTile = 1;
 	}
 
-	if (ImGui::ImageButton(*tileTexture2, sf::Vector2f(20, 20)))
+	if (ImGui::ImageButton(*tileTexture2, sf::Vector2f(30, 30)))
 	{
 		selectedTile = 2;
 	}
 
-	if (ImGui::ImageButton(*tileTexture3, sf::Vector2f(20, 20)))
+	if (ImGui::ImageButton(*tileTexture3, sf::Vector2f(30, 30)))
 	{
 		selectedTile = 3;
 	}
 
-	ImGui::End();
 }
 
 
-void Map::tileUpdate(sf::RenderWindow& window)
+void Map::tileUpdate(sf::RenderWindow& m_window)
 {
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(m_window);
 

@@ -3,7 +3,7 @@
 #include "Grid.h"
 
 
-class Map : public App
+class Map
 {
 public:
 	Map();
@@ -37,8 +37,6 @@ public:
 		1, 2, 3, 1, 2, 3, 1, 2, 3,
 		1, 2, 3, 1, 2, 3, 1, 2, 3
 	};
-
-
 
 };
 

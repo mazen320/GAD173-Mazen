@@ -2,6 +2,7 @@
 
 #include "app.h"
 #include "Grid.h"
+#include "Map.h"
 
 class Example : public App
 {

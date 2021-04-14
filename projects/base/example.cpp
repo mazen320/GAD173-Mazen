@@ -3,7 +3,7 @@
 #include "Map.h"
 #include <iostream>
 
-Example::Example(): App(), grid() 
+Example::Example(): App(), grid(), map()
 {
 }
 
@@ -23,13 +23,24 @@ bool Example::start()
 	sf::Vector2u resolution = m_backgroundSprite->getTexture()->getSize();
 	m_backgroundSprite->setScale(float(m_window.getSize().x) / resolution.x, float(m_window.getSize().y) / resolution.y);
 
-	//Map.mapload();
+	map.tileLoad();
+	map.mapLoad();
 
 	return true;
 }
 
 void Example::update(float deltaT)
 {
+	ImGui::Begin("Kage2D");
+
+	if (ImGui::Button("Exit"))
+	{
+		m_running = false;
+	}
+	map.guiLoad(m_window);
+	ImGui::End();
+
+	map.tileUpdate(m_window);
 }
 
 
@@ -37,11 +48,12 @@ void Example::render()
 {
 	m_window.draw(*m_backgroundSprite);
 
-	grid.Draw(m_window);    
+	map.Render(m_window);
+
+	grid.Draw(m_window);
 }
 
 void Example::cleanup()
 {
 	delete m_backgroundSprite;
 }
-
