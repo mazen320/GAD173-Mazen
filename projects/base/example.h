@@ -3,6 +3,7 @@
 #include "app.h"
 #include "Grid.h"
 #include "Map.h"
+#include "SpriteAnimator.h"
 
 class Example : public App
 {
@@ -20,4 +21,6 @@ public:
 	Map map;
 
 	Grid grid;
+
+	SpriteAnimator spriteAnimator;
 };

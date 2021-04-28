@@ -2,6 +2,9 @@
 #include "Grid.h"
 #include "Map.h"
 #include <iostream>
+#include <saveLoad.h>
+#include <SpriteAnimator.h>
+
 
 Example::Example(): App(), grid(), map()
 {
@@ -26,6 +29,10 @@ bool Example::start()
 	map.tileLoad();
 	map.mapLoad();
 
+	spriteAnimator.Init();
+	spriteAnimator.Load("data/spritesheet.png");
+	spriteAnimator.startAnimation(sf::Vector2i(0, 0), sf::Vector2i(0, 9), 100);
+
 	return true;
 }
 
@@ -37,9 +44,22 @@ void Example::update(float deltaT)
 	{
 		m_running = false;
 	}
-	map.guiLoad(m_window);
-	ImGui::End();
 
+	map.guiLoad(m_window);
+
+	if (ImGui::Button("Save"))
+	{
+		saveLoad::Save("data/Saves/Map.txt", map.map, 10, 9);
+	}
+
+	if (ImGui::Button("Load"))
+	{
+		saveLoad::Load("data/Saves/Map.txt", map.map, 90);
+		map.mapLoad();
+	}
+
+	ImGui::End();
+	spriteAnimator.Update();
 	map.tileUpdate(m_window);
 }
 
@@ -49,6 +69,8 @@ void Example::render()
 	m_window.draw(*m_backgroundSprite);
 
 	map.Render(m_window);
+
+	spriteAnimator.Render(m_window);
 
 	grid.Draw(m_window);
 }

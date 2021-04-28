@@ -11,22 +11,57 @@ saveLoad::~saveLoad()
 {
 }
 
-void loop()
+void saveLoad::Save(std::string fileName, int* buffer, int Y_COUNT, int X_COUNT)
+{
+	std::ofstream file;
+	file.open(fileName);
+	for (size_t y = 0; y < Y_COUNT; y++)
+	{
+		for (size_t x = 0; x < X_COUNT; x++)
+		{
+			int i = x + y * X_COUNT;
+			file << buffer[i] << ", ";
+		}
+		file << std::endl;
+	}
+	file.close();
+}
+
+void saveLoad::Load(std::string fileName, int* buffer, int size)
 {
 	{
-		std::string line = "10, 50, 60, 800, 900, 087";
+		std::string line;
+		std::ifstream mysave(fileName);
 
-		int start = 0;
-		int index = -1;
+		int i = 0;
 
-		while (true)
+		if (mysave.is_open())
 		{
-			start = index + 1;
-			index = line.find(",");
+			int commaIndex = -1;
 
-			std::string numStr = line.substr(start, index - start);
+			while (std::getline(mysave, line))
+			{
+				while (true)
+				{
+					int cutStart = commaIndex + 1;
+					commaIndex = line.find(',', commaIndex + 1);
 
-			std::cout << numStr << std::endl;
+					std::string numStr = line.substr(cutStart, commaIndex - cutStart);
+
+					if (commaIndex < 0)
+						break;
+
+					int num = std::stoi(numStr);
+					buffer[i] = num;
+					i++;
+					std::cout << num << " ";
+				}
+				std::cout << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "Can't load file" << std::endl;
 		}
 	}
 }

@@ -21,10 +21,9 @@ void Map::tileLoad()
 	tileTexture3 = kage::TextureManager::getTexture("data/test.jpg");
 }
 
-
 void Map::mapLoad()
 {
-	for (size_t y = 0; y < 10; y++)
+	for (size_t y = 0; y < 10; y++) 
 	{
 		for (size_t x = 0; x < 9; x++)
 		{
