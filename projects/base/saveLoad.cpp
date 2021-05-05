@@ -1,7 +1,5 @@
 #include "saveLoad.h"
-#include <string>
-#include <iostream>
-#include <app.h>
+
 
 saveLoad::saveLoad()
 {
@@ -15,6 +13,7 @@ void saveLoad::Save(std::string fileName, int* buffer, int Y_COUNT, int X_COUNT)
 {
 	std::ofstream file;
 	file.open(fileName);
+
 	for (size_t y = 0; y < Y_COUNT; y++)
 	{
 		for (size_t x = 0; x < X_COUNT; x++)
@@ -27,7 +26,7 @@ void saveLoad::Save(std::string fileName, int* buffer, int Y_COUNT, int X_COUNT)
 	file.close();
 }
 
-void saveLoad::Load(std::string fileName, int* buffer, int size)
+void saveLoad::Load(std::string fileName, int* buffer)
 {
 	{
 		std::string line;
@@ -49,7 +48,9 @@ void saveLoad::Load(std::string fileName, int* buffer, int size)
 					std::string numStr = line.substr(cutStart, commaIndex - cutStart);
 
 					if (commaIndex < 0)
+					{
 						break;
+					}
 
 					int num = std::stoi(numStr);
 					buffer[i] = num;

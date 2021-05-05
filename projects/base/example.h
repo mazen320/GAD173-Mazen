@@ -4,6 +4,7 @@
 #include "Grid.h"
 #include "Map.h"
 #include "SpriteAnimator.h"
+#include "saveLoad.h"
 
 class Example : public App
 {

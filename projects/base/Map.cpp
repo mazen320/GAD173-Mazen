@@ -28,7 +28,6 @@ void Map::mapLoad()
 		for (size_t x = 0; x < 9; x++)
 		{
 			int i = x + y * 9;
-
 			if (map[i] == 0)
 			{
 				tiles[i].setTexture(*removeTexture);
@@ -49,8 +48,7 @@ void Map::mapLoad()
 				tiles[i].setTexture(*tileTexture3);
 			}
 
-			tiles[i].setPosition(sf::Vector2f(GRID_OFFSET_X + x * CELL_SIZE,
-				GRID_OFFSET_Y + y * CELL_SIZE));
+			tiles[i].setPosition(sf::Vector2f(GRID_OFFSET_X + x * CELL_SIZE, GRID_OFFSET_Y + y * CELL_SIZE));
 		}
 	}
 }
@@ -58,26 +56,28 @@ void Map::mapLoad()
 
 void Map::guiLoad(sf::RenderWindow& window)
 {
+	ImGui::Begin("Select A Tile");
+
 	if (ImGui::Button("Remove Object"))
 	{
 		selectedTile = 0;
 	}
 
-	if (ImGui::ImageButton(*tileTexture, sf::Vector2f(30, 30)))
+	if (ImGui::ImageButton(*tileTexture, sf::Vector2f(CELL_SIZE, CELL_SIZE)))
 	{
 		selectedTile = 1;
 	}
 
-	if (ImGui::ImageButton(*tileTexture2, sf::Vector2f(30, 30)))
+	if (ImGui::ImageButton(*tileTexture2, sf::Vector2f(CELL_SIZE, CELL_SIZE)))
 	{
 		selectedTile = 2;
 	}
 
-	if (ImGui::ImageButton(*tileTexture3, sf::Vector2f(30, 30)))
+	if (ImGui::ImageButton(*tileTexture3, sf::Vector2f(CELL_SIZE, CELL_SIZE)))
 	{
 		selectedTile = 3;
 	}
-
+	ImGui::End();
 }
 
 
@@ -102,7 +102,7 @@ void Map::tileUpdate(sf::RenderWindow& m_window)
 		if (selectedTile == 0)
 		{
 			tiles[i].setTexture(*removeTexture);
-			map[i] = 1;
+			map[i] = 0;
 		}
 		if (selectedTile == 1)
 		{
@@ -113,12 +113,12 @@ void Map::tileUpdate(sf::RenderWindow& m_window)
 		if (selectedTile == 2)
 		{
 			tiles[i].setTexture(*tileTexture2);
-			map[i] = 1;
+			map[i] = 2;
 		}
 		if (selectedTile == 3)
 		{
 			tiles[i].setTexture(*tileTexture3);
-			map[i] = 1;
+			map[i] = 3;
 		}
 	}
 }

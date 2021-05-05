@@ -1,9 +1,4 @@
 #include "example.h"
-#include "Grid.h"
-#include "Map.h"
-#include <iostream>
-#include <saveLoad.h>
-#include <SpriteAnimator.h>
 
 
 Example::Example(): App(), grid(), map()
@@ -31,14 +26,14 @@ bool Example::start()
 
 	spriteAnimator.Init();
 	spriteAnimator.Load("data/spritesheet.png");
-	spriteAnimator.startAnimation(sf::Vector2i(0, 0), sf::Vector2i(0, 9), 100);
+	spriteAnimator.startAnimation(sf::Vector2i(0, 0), sf::Vector2i(9, 9), 100);
 
 	return true;
 }
 
 void Example::update(float deltaT)
 {
-	ImGui::Begin("Kage2D");
+	ImGui::Begin("Options");
 
 	if (ImGui::Button("Exit"))
 	{
@@ -54,12 +49,14 @@ void Example::update(float deltaT)
 
 	if (ImGui::Button("Load"))
 	{
-		saveLoad::Load("data/Saves/Map.txt", map.map, 90);
+		saveLoad::Load("data/Saves/Map.txt", map.map);
 		map.mapLoad();
 	}
 
 	ImGui::End();
+
 	spriteAnimator.Update();
+
 	map.tileUpdate(m_window);
 }
 
@@ -70,9 +67,9 @@ void Example::render()
 
 	map.Render(m_window);
 
-	spriteAnimator.Render(m_window);
-
 	grid.Draw(m_window);
+
+	spriteAnimator.Render(m_window);
 }
 
 void Example::cleanup()

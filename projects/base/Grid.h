@@ -22,7 +22,7 @@
 #define V_SIZE_Y 560
 
 //Cell size, so textures are 56x56
-#define CELL_SIZE 40
+#define CELL_SIZE 56
 
 class Grid
 {
