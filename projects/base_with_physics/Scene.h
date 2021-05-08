@@ -16,4 +16,3 @@ public:
 	virtual void Update();
 	virtual void Render(sf::RenderWindow& window);
 };
-

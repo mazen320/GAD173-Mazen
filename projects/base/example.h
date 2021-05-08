@@ -20,8 +20,9 @@ public:
 	sf::Sprite *m_backgroundSprite;
 
 	Map map;
-
 	Grid grid;
 
-	SpriteAnimator spriteAnimator;
+
+
+
 };

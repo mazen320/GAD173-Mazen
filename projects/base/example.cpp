@@ -24,9 +24,7 @@ bool Example::start()
 	map.tileLoad();
 	map.mapLoad();
 
-	spriteAnimator.Init();
-	spriteAnimator.Load("data/spritesheet.png");
-	spriteAnimator.startAnimation(sf::Vector2i(0, 0), sf::Vector2i(9, 9), 100);
+
 
 	return true;
 }
@@ -55,9 +53,10 @@ void Example::update(float deltaT)
 
 	ImGui::End();
 
-	spriteAnimator.Update();
 
 	map.tileUpdate(m_window);
+
+
 }
 
 
@@ -69,7 +68,6 @@ void Example::render()
 
 	grid.Draw(m_window);
 
-	spriteAnimator.Render(m_window);
 }
 
 void Example::cleanup()

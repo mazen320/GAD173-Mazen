@@ -101,11 +101,8 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="example.h" />
     <ClInclude Include="Grid.h" />
-    <ClInclude Include="Scenes\Level1.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="saveLoad.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SpriteAnimator.h" />
   </ItemGroup>
   <ItemGroup>
@@ -113,12 +110,9 @@
     <ClCompile Include="dependencies.cpp" />
     <ClCompile Include="example.cpp" />
     <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Scenes\Level1.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="saveLoad.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SpriteAnimator.cpp" />
   </ItemGroup>
   <ItemGroup>

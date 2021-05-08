@@ -100,20 +100,28 @@
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="example.h" />
-    <ClInclude Include="Rabbit.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="Grid.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="saveLoad.h" />
+    <ClInclude Include="Scenes\MainMenu.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Scenes\Level1.h" />
+    <ClInclude Include="SpriteAnimator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp" />
     <ClCompile Include="dependencies.cpp" />
     <ClCompile Include="example.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Rabbit.cpp">
-      <SubType>
-      </SubType>
-    </ClCompile>
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="saveLoad.cpp" />
+    <ClCompile Include="Scenes\MainMenu.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Scenes\Level1.cpp" />
+    <ClCompile Include="SpriteAnimator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\dev\components\kage2dutil\kage2dutil.vcxproj">

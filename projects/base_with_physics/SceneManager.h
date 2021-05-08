@@ -8,14 +8,14 @@ class SceneManager
 {
 private:
 	int currentSceneID;
-	std::vector<Scene> scenes;
+	std::vector<Scene*> scenes;
 
 public:
 	SceneManager();
 	~SceneManager();
 
 	void LoadScene(int sceneID);
-	void addScene(Scene& scene);
+	void addScene(Scene* scene);
 	void RemoveScene(int sceneID);
 
 	void Load();

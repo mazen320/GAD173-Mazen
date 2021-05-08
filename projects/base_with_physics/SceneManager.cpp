@@ -13,7 +13,7 @@ void SceneManager::LoadScene(int sceneID)
 	currentSceneID = sceneID;
 }
 
-void SceneManager::addScene(Scene& scene)
+void SceneManager::addScene(Scene* scene)
 {
 	scenes.push_back(scene);
 }
@@ -28,10 +28,11 @@ void SceneManager::Load()
 
 void SceneManager::Update()
 {
-	scenes[currentSceneID].Update();
+	
+	scenes[currentSceneID]->Update();
 }
 
 void SceneManager::Render(sf::RenderWindow& window)
 {
-	scenes[currentSceneID].Render(window);
+	scenes[currentSceneID]->Render(window);
 }
