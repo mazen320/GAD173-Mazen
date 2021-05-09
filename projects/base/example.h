@@ -22,7 +22,4 @@ public:
 	Map map;
 	Grid grid;
 
-
-
-
 };

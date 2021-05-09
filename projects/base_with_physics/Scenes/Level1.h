@@ -11,6 +11,7 @@ public:
 	~Level1();
 
 	Grid grid;
+	Map map;
 
 	void Init() override;
 	void Load() override;

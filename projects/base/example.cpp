@@ -24,8 +24,6 @@ bool Example::start()
 	map.tileLoad();
 	map.mapLoad();
 
-
-
 	return true;
 }
 

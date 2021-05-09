@@ -2,11 +2,10 @@
 #include <kage2dutil/texture_manager.h>
 #include <iostream>
 
-#define SPRITE_WIDTH 80
-#define SPRITE_HEIGHT 80
+#define SPRITE_WIDTH 56
+#define SPRITE_HEIGHT 56
 
-SpriteAnimator::SpriteAnimator() :
-	spriteSheetTexture(nullptr)
+SpriteAnimator::SpriteAnimator()
 {
 }
 

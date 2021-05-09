@@ -14,6 +14,8 @@ void Scene::Init()
 
 void Scene::Load()
 {
+	isLoaded = true;
+	isRunning = true;
 }
 
 void Scene::Update()

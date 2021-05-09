@@ -44,18 +44,20 @@ void Map::mapLoad()
 			if (map[i] == 1)
 			{
 				tiles[i].setTexture(*tileTexture);
-				tilesAnimator[i].startAnimation(sf::Vector2i(0, 0), sf::Vector2i(9, 9), 100);
+				tilesAnimator[i].startAnimation(sf::Vector2i(0, 0), sf::Vector2i(3, 0), 500);
 
 			}
 
 			if (map[i] == 2)
 			{
 				tiles[i].setTexture(*tileTexture2);
+				tilesAnimator[i].startAnimation(sf::Vector2i(0, 1), sf::Vector2i(5, 1), 100);
 			}
 
 			if (map[i] == 3)
 			{
 				tiles[i].setTexture(*tileTexture3);
+				tilesAnimator[i].startAnimation(sf::Vector2i(0, 2), sf::Vector2i(5, 2), 100);
 			}
 
 			tilesAnimator[i].spriteSheet.setPosition(sf::Vector2f(GRID_OFFSET_X + x * CELL_SIZE, GRID_OFFSET_Y + y * CELL_SIZE));
@@ -105,10 +107,6 @@ void Map::tileUpdate(sf::RenderWindow& m_window)
 		int mouseonCellY = (mousePosition.y - GRID_OFFSET_Y) / CELL_SIZE;
 
 		int i = mouseonCellX + mouseonCellY * TOTAL_CELLS_X;
-
-		std::cout << "INDEX: " << i << std::endl;
-		std::cout << "MOUSE POS: " << mousePosition.x << " " << mousePosition.y << " "
-			<< mouseonCellX << " " << mouseonCellY << std::endl;
 
 		if (selectedTile == 0)
 		{

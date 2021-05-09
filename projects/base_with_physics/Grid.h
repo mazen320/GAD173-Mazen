@@ -8,7 +8,7 @@
 #define TOTAL_CELLS_Y 10
 
 //Changing these will move the grid's position
-#define GRID_OFFSET_X 100
+#define GRID_OFFSET_X 300
 #define GRID_OFFSET_Y 100
 
 //Grid's size

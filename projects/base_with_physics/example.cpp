@@ -1,5 +1,6 @@
 #include "example.h"
 #include "Scenes/Level1.h"
+#include "Scenes/MainMenu.h"
 
 Example::Example(): App()
 {
@@ -23,7 +24,10 @@ bool Example::start()
 	sf::Vector2u resolution = m_backgroundSprite->getTexture()->getSize();
 	m_backgroundSprite->setScale(float(m_window.getSize().x) / resolution.x, float(m_window.getSize().y) / resolution.y);
 
-	sceneManager.addScene(new Level1());
+	sceneManager.addScene(new MainMenu());
+	sceneManager.addScene(new Level1());	
+
+	sceneManager.Load();
 
 	return true;
 }
@@ -35,11 +39,22 @@ void Example::update(float deltaT)
 		m_running = false;
 	}
 
-	ImGui::Begin("Kage2D");
+	ImGui::Begin("Scene Loader");
+
 	if(ImGui::Button("Exit"))
 	{ 
 		m_running = false;
 	}
+	if (ImGui::Button("Main Menu"))
+	{
+		sceneManager.LoadScene(0);
+	}
+	if (ImGui::Button("Level 1"))
+	{
+		sceneManager.LoadScene(1);
+		ImGui::EndMenu;
+	}
+
 	ImGui::End();
 
 	sceneManager.Update();
